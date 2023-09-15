@@ -4,8 +4,6 @@ public class MoleSpawnGrid : MonoBehaviour
 {
     public int gridSize = 3;
     public int cellSize = 1;
-
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
