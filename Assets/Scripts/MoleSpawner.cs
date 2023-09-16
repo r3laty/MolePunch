@@ -14,27 +14,22 @@ public class MoleSpawner : MonoBehaviour
     [SerializeField] private GameObject molePrefab;
     [Space]
     [SerializeField] private float spawnInterval = 2.0f;
-    [SerializeField] private float gameDuration = 60.0f;
-    [Space]
-    [SerializeField] private TextMeshProUGUI timerText; 
-    private float _currentTime = 0;
+    public float gameDuration;
 
     private List<GameObject> _spawnedObjects = new List<GameObject>();
     [HideInInspector] public int _moleCount = 0;
+    [HideInInspector] public bool isGameStarted;
 
     private void Start()
     {
-        if (UiController.gameStarted || UiController.gamemodChosen)
-        {
-            StartCoroutine(StartGame());
-        }
+        isGameStarted = true;
     }
 
     private void Update()
     {
-        Debug.Log(Time.timeScale + " time scale");
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Get mouse button");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -50,23 +45,7 @@ public class MoleSpawner : MonoBehaviour
             }
         }
     }
-    private IEnumerator StartGame()
-    {
-        _currentTime = gameDuration;
-        StartCoroutine(SpawnMolesWithDelay());
-
-        while (_currentTime > 0)
-        {
-            _currentTime -= Time.deltaTime;
-            UpdateTimerText(timerText);
-            yield return null;
-        }
-
-        // Время истекло, завершаем игру
-        Debug.Log("Game ended!");
-    }
-
-    private IEnumerator SpawnMolesWithDelay()
+    public IEnumerator SpawnMolesWithDelay()
     {
         for (int x = 0; x < int.MaxValue; x++)
         {
@@ -91,11 +70,5 @@ public class MoleSpawner : MonoBehaviour
             }
         }
     }
-    private void UpdateTimerText(TextMeshProUGUI tmpText)
-    {
-        if (UiController.easy || UiController.gameStarted)
-        {
-            tmpText.text = "Easy mode, time left " + _currentTime.ToString("F0");
-        }
-    }
+
 }

@@ -4,39 +4,32 @@ using UnityEngine;
 
 public class UiController : MonoBehaviour
 {
-    [Header("Freezing time")]
-    [SerializeField] private GameObject spawning;
-    [Space]
-    [HideInInspector] public bool easy, normal, hard, gameStarted, gamemodChosen;
-
+    [HideInInspector] public bool easy = false, normal = false, hard = false, gamemodChosen = false;
     public void OnStartClick()
     {
-        if (easy || normal || hard)
-        {
-            gameStarted = false;
-        }
-        else
+        if (!easy || !normal || !hard)
         {
             Debug.Log("Game started without choosing gamemod");
-            gameStarted = true;
+            gamemodChosen = false;
         }
+
 
         Debug.Log("Game just started!");
     }
-    public void GamemodEasy()
+    public void GamemodeEasy()
     {
         easy = true;
         gamemodChosen = true;
         Debug.Log("Easy");
     }
-    public void GamemodNormal()
+    public void GamemodeNormal()
     {
         normal = true;
         gamemodChosen = true;
         Debug.Log("Medium");
     }
 
-    public void GamemodHard()
+    public void GamemodeHard()
     {
         hard = true;
         gamemodChosen = true;
