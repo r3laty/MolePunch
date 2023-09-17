@@ -5,15 +5,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoleSpawner : MonoBehaviour
+public class MoleSpawner : MoleConfig
 {
     [SerializeField] private MoleSpawnGrid spawnGrid;
     [Space]
     [SerializeField] private UiController UiController;
     [Space]
-    [SerializeField] private GameObject molePrefab;
-    [Space]
-    [SerializeField] private float spawnInterval = 2.0f;
     public float gameDuration;
 
     private List<GameObject> _spawnedObjects = new List<GameObject>();
@@ -56,17 +53,20 @@ public class MoleSpawner : MonoBehaviour
 
 
                 Vector3 spawnPoint = transform.position + new Vector3(randomX * spawnGrid.cellSize, 0f, randomZ * spawnGrid.cellSize);
-                GameObject newMole = Instantiate(molePrefab, spawnPoint, Quaternion.identity);
+                int randomConfigIndex = Random.Range(0, molePrefab.Length);
+
+                GameObject newMole = Instantiate(molePrefab[randomConfigIndex], spawnPoint, Quaternion.identity);
+
                 _spawnedObjects.Add(newMole);
 
-                if (_spawnedObjects.Count > 2)
+                if (_spawnedObjects.Count > 1)
                 {
                     int randomIndex = Random.Range(0, _spawnedObjects.Count - 1);
                     GameObject objectToRemove = _spawnedObjects[randomIndex];
                     _spawnedObjects.RemoveAt(randomIndex);
                     Destroy(objectToRemove);
                 }
-                yield return new WaitForSeconds(spawnInterval);
+                yield return new WaitForSeconds(spawnInterval[randomConfigIndex]);
             }
         }
     }

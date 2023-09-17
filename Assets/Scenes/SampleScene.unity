@@ -2172,10 +2172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc7181159e743a4f9e65308242308f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molePrefab: []
+  health: []
+  spawnInterval: []
   spawnGrid: {fileID: 1646476516}
   UiController: {fileID: 77870105}
-  molePrefab: {fileID: 3142509477950797744, guid: c4ea17abb2353004f8eddcad0b1b58ff, type: 3}
-  spawnInterval: 0.5
   gameDuration: 20
   _moleCount: 0
   isGameStarted: 0
@@ -2267,10 +2268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc7181159e743a4f9e65308242308f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molePrefab: []
+  health: []
+  spawnInterval: []
   spawnGrid: {fileID: 1870944739}
   UiController: {fileID: 77870105}
-  molePrefab: {fileID: 3142509477950797744, guid: c4ea17abb2353004f8eddcad0b1b58ff, type: 3}
-  spawnInterval: 0.8
   gameDuration: 35
   _moleCount: 0
   isGameStarted: 0
@@ -2764,11 +2766,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc7181159e743a4f9e65308242308f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  molePrefab:
+  - {fileID: 3142509477950797744, guid: c4ea17abb2353004f8eddcad0b1b58ff, type: 3}
+  - {fileID: 1030937582168380969, guid: 30131c5319a7d8d40a2c62e690d8232f, type: 3}
+  - {fileID: 7179929930987070033, guid: a46e57c6ee9885444945fc2c225c03e3, type: 3}
+  health:
+  - 1
+  - 1
+  - 1
+  spawnInterval:
+  - 1.5
+  - 1.3
+  - 0.6
   spawnGrid: {fileID: 2047049319}
   UiController: {fileID: 77870105}
-  molePrefab: {fileID: 3142509477950797744, guid: c4ea17abb2353004f8eddcad0b1b58ff, type: 3}
-  spawnInterval: 1.5
-  gameDuration: 60
+  gameDuration: 45
   _moleCount: 0
   isGameStarted: 0
 --- !u!114 &2047049322

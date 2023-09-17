@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UiController : MonoBehaviour
 {
-    [HideInInspector] public bool easy = false, normal = false, hard = false, gamemodChosen = false;
+    [HideInInspector] public bool easy, normal, hard, gamemodChosen;
     public void OnStartClick()
     {
         if (!easy || !normal || !hard)
         {
-            Debug.Log("Game started without choosing gamemod");
             gamemodChosen = false;
         }
-
-
-        Debug.Log("Game just started!");
     }
     public void GamemodeEasy()
     {
