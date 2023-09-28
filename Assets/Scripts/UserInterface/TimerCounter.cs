@@ -15,29 +15,23 @@ public class TimerCounter : MonoBehaviour
     private string _textTemplate;
 
     private Dictionary<string, int> _lvlMode = new Dictionary<string, int>();
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
-        if(!ui.gamemodChosen) _textTemplate = "Easy mode, time left " + _currentTime.ToString("F0");
-
         if (ui.easy)
         {
-            _textTemplate = "Easy mode, time left " + _currentTime.ToString("F0");
+            _textTemplate = "Easy mode, time left " + _currentTime.ToString("F0") + " sec";
             _lvlMode.Add("EasyMode", 0);
             StartCoroutine(StartGame(_lvlMode["EasyMode"]));
         } 
         if(ui.normal)
         {
-            _textTemplate = "Normal mode, time left " + _currentTime.ToString("F0");
+            _textTemplate = "Normal mode, time left " + _currentTime.ToString("F0") + " sec";
            _lvlMode.Add("NormalMode", 1);
             StartCoroutine(StartGame(_lvlMode["NormalMode"]));
         } 
         if(ui.hard)
         {
-            _textTemplate = "Hard mode, time left " + _currentTime.ToString("F0");
+            _textTemplate = "Hard mode, time left " + _currentTime.ToString("F0") + " sec";
             _lvlMode.Add("HardMode", 2);
             StartCoroutine(StartGame(_lvlMode["HardMode"]));
         }

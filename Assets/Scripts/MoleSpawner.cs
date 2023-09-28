@@ -51,11 +51,10 @@ public class MoleSpawner : MoleConfig
                 int randomX = Random.Range(0, spawnGrid.gridSize);
                 int randomZ = Random.Range(0, spawnGrid.gridSize);
 
-
                 Vector3 spawnPoint = transform.position + new Vector3(randomX * spawnGrid.cellSize, 0f, randomZ * spawnGrid.cellSize);
-                int randomConfigIndex = Random.Range(0, molePrefab.Length);
+                //int randomConfigIndex = Random.Range(0, molePrefab.Length);
 
-                GameObject newMole = Instantiate(molePrefab[randomConfigIndex], spawnPoint, Quaternion.identity);
+                GameObject newMole = Instantiate(molePrefab, spawnPoint, Quaternion.identity);
 
                 _spawnedObjects.Add(newMole);
 
@@ -66,7 +65,7 @@ public class MoleSpawner : MoleConfig
                     _spawnedObjects.RemoveAt(randomIndex);
                     Destroy(objectToRemove);
                 }
-                yield return new WaitForSeconds(spawnInterval[randomConfigIndex]);
+                yield return new WaitForSeconds(spawnInterval);
             }
         }
     }

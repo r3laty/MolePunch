@@ -12,8 +12,6 @@ public class ChoosingGamemode : MonoBehaviour
     [SerializeField] private GameObject hardModeLvl;
     private void Update()
     {
-        if (uiController.gamemodChosen) easyModeLvl.SetActive(true);
-
         if (uiController.easy)
         {
             easyModeLvl.SetActive(true); 

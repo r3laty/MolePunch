@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoleConfig : MonoBehaviour
 {
-    public GameObject[] molePrefab = new GameObject[3]; // Модель крота
-    public float[] health = new float[3]; // Здоровье крота
-    public float[] spawnInterval = new float[3]; // Время между спаунами
+    public GameObject molePrefab; // Модель крота
+    public float health; // Здоровье крота
+    public float spawnInterval; // Время между спаунами
 }
