@@ -10,6 +10,8 @@ public class TimerCounter : MonoBehaviour
     [SerializeField] private UiController ui;
     [Space]
     [SerializeField] private TextMeshProUGUI timerText;
+    [Space]
+    [SerializeField] private GameObject theEndMenu;
   
     private float _currentTime = 0;
     private string _textTemplate;
@@ -49,7 +51,7 @@ public class TimerCounter : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Game ended!");
+        theEndMenu.SetActive(true);
     }
     private void UpdateTimerText(TextMeshProUGUI tmpText, string textTemplate)
     {

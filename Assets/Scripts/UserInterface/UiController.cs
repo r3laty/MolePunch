@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiController : MonoBehaviour
 {
     [HideInInspector] public bool easy, normal, hard, gamemodChosen;
+
     public void OnStartClick()
     {
         if (!easy || !normal || !hard)
@@ -28,5 +30,12 @@ public class UiController : MonoBehaviour
         hard = true;
         gamemodChosen = true;
         Debug.Log("Hard"); 
+    }
+    public void Pause() => Time.timeScale = 0;
+    public void Continue() => Time.timeScale = 1;
+    public void TryAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 }
